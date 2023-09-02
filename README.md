@@ -3,6 +3,22 @@
 A simple C library that handles flaot matrices creation, manipulation and some basic operation.
 Check the `main.c` to get an overview of all the functions so far.
 
+----
+
+## Compiling
+
+You can manually compile and link the src files `operations.c`, `initialization.c` and the header `matrix_operations.c`, but you can easily compile with one line command using make as an example for your project:
+
+```bash
+make all # compiles everything
+
+make run # runs the example program
+
+make obj # compiles by first generating .o files (it may be useful)
+
+make clean # cleans the compiled generated files
+```
+
 An example of creating and multiplying two matrices, one generated from a float array and the other from a file containing all the matrix values.
 
 ```c
