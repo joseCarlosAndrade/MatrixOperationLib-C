@@ -19,6 +19,10 @@ make obj # compiles by first generating .o files (it may be useful)
 make clean # cleans the compiled generated files
 ```
 
+----
+
+## Usage example
+
 An example of creating and multiplying two matrices, one generated from a float array and the other from a file containing all the matrix values.
 
 ```c
