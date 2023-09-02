@@ -1,0 +1,8 @@
+1.0 1.0 
+2.0 2.0 
+3.0 3.0
+
+you can write anything you want after the matrix is finished
+
+note: put the matrix definition here (eg. Matrix that defines the weights 
+of the 1st neural network layer..)

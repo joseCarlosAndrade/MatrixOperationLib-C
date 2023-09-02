@@ -1,4 +1,4 @@
-#include"matrix_operations.h"
+#include"../headers/matrix_operations.h"
 
 
 Matrix2Df * create_matrix(unsigned int i, unsigned int j) {
@@ -17,6 +17,13 @@ Matrix2Df * create_matrix(unsigned int i, unsigned int j) {
         (m->_base_ptr)[o] = (float*) calloc(j, sizeof(float));
         assert((m->_base_ptr[o]) != 0);
     }
+
+    // initializes matrices as 0 (i know calloc is supposed to do this already but so far it isnt so until i fix that this will work)
+    for (int ii = 0; ii < i; ii++) {
+            for (int jj = 0; jj < j; jj++) {
+                m->_base_ptr[ii][jj] = 0;
+            }
+        }
 
     return m;
 }
@@ -49,7 +56,7 @@ int fill_matrix(Matrix2Df *m, float * vec) {
     return 1;
 }
 
-int fill_matrix_from_file(Matrix2Df*m, char*f_name, int n) {
+int fill_matrix_from_file(Matrix2Df*m, const char*f_name) {
     assert(m != NULL && f_name != NULL);
 
     FILE *fp = NULL;
@@ -58,14 +65,15 @@ int fill_matrix_from_file(Matrix2Df*m, char*f_name, int n) {
     assert(fp!=NULL);
 
     float * vec =NULL;
-    vec = (float*) calloc(n, sizeof(float));
+    vec = (float*) calloc(m->col*m->row, sizeof(float));
 
-    for (int i = 0; i < n; i++) {
+    for (int i = 0; i < m->col*m->row; i++) {
         fscanf(fp, "%f ", &vec[i]);
     }
 
     int r = fill_matrix(m,vec);
     free(vec);
+    fclose(fp);
 
     return r;
 }
@@ -77,9 +85,9 @@ void print_matrix(Matrix2Df*m) {
         printf("\n");
 
         for (int j= 0; j < m->col; j++) {
-            // printf("%f ", *(*(m->_base_ptr + i)+j));
             printf("%f ", m->_base_ptr[i][j]);
         }
     }
+    printf("\n");
 }
 
