@@ -1,4 +1,4 @@
-#include"headers/matrix_operations.h"
+#include"../include/matrix_operations.h"
 
 
 /* Main for exmple using all operations.*/
@@ -12,8 +12,8 @@ int main(void) {
     // fill_matrix(matrix, buffer);
 
     // filling matrix from input file
-    fill_matrix_from_file(matrix_a, "inputs/input_a.txt");
-    fill_matrix_from_file(matrix_b, "inputs/input_b.txt");
+    fill_matrix_from_file(matrix_a, "data/input_a.txt");
+    fill_matrix_from_file(matrix_b, "data/input_b.txt");
 
     printf("Matrices a and b: \n");
     print_matrix(matrix_a);
